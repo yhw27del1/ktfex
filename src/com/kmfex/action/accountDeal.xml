@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <!-- 转账查询 -->   
+    <package name="accountDeal" namespace="/back" extends="mydefault">
+		<action name="accountDealAction" class="accountDealAction">       
+		    <result name="list" >/back/accountDeal/accountDealList.jsp</result>
+		    <result name="cashFlow" >/back/accountDeal/cashFlow.jsp</result>
+		    <result name="cashFlowEx" >/back/accountDeal/cashFlowEx.jsp</result>
+		    <result name="list_ex" >/back/accountDeal/accountDealList_ex.jsp</result>
+		    <result name="cashList" >/back/accountDeal/cashCheckList.jsp</result>
+		    <result name="cashList2" >/back/accountDeal/cashCheckList2.jsp</result>
+		    <result name="cashCheckToPass" type="redirect">./accountDealAction!cashList?action=${action}</result>
+		    <result name="cashCheckToNoPass" type="redirect">./accountDealAction!cashList?action=${action}</result>
+		    <result name="bzjCashList" >/back/accountDeal/bzjCashList.jsp</result>
+		    <result name="bzjCashCheckToPass" type="redirectAction">./accountDealAction!bzjCashList</result>
+		    <result name="bzjCashCheckToNoPass" type="redirectAction">./accountDealAction!bzjCashList</result>
+		    <result name="chargeCheckList" >/back/accountDeal/accountDealCheckList.jsp</result>
+		    <result name="chargeCheckList2" >/back/accountDeal/accountDealCheckList2.jsp</result>
+		    <result name="todayChargeList" >/back/accountDeal/accountDealTodayChargeList.jsp</result>
+		    <result name="chargeCheckToPass" type="redirect">./accountDealAction!chargeCheckList?action=${action}</result>
+		    <result name="chargeCheckToNoPass" type="redirect">./accountDealAction!chargeCheckList?action=${action}</result>
+		    <result name="listForPerson" >/back/accountDeal/accountDealListForPerson.jsp</result>
+		    <result name="acWs" >/back/accountDeal/acWs.jsp</result>
+		    <result name="sgWs" >/back/accountDeal/sgWs.jsp</result>
+		    <result name="centerAccount" >/back/accountDeal/centerAccount.jsp</result>
+		    <result name="centerAccount2" >/back/accountDeal/centerAccount2.jsp</result>
+			<result name="thirdAccount" >/back/accountDeal/thirdAccount.jsp</result>
+		    <result name="thirdAccount2" >/back/accountDeal/thirdAccount2.jsp</result>
+		    <result name="delivery" >/back/accountDeal/delivery.jsp</result>
+		    <result name="toCash" >/back/accountDeal/cash.jsp</result>
+		    <result name="getCashRzR" />
+		    <result name="toCashRz" /> 
+			<result name="totalAccount" >/back/accountDeal/memTotalAccount.jsp</result>
+			<result name="totalAccountEx" >/back/accountDeal/memTotalAccountEx.jsp</result>
+			<result name="chargeList_checked" >/back/accountDeal/chargeList_checked.jsp</result>
+			<result name="cashList_checked" >/back/accountDeal/cashList_checked.jsp</result>
+			<result name="chargeAndCashList_checked" >/back/accountDeal/chargeAndCashList_checked.jsp</result>
+			<result name="chargeAndCashList_checked_excel" >/back/accountDeal/chargeAndCashList_checked_excel.jsp</result>
+			<result name="chargeAndCashList_checked_print" >/back/accountDeal/chargeAndCashList_checked_print.jsp</result>
+			<result name="chargeAndCashList_checked2" >/back/accountDeal/chargeAndCashList_checked2.jsp</result>
+			<result name="charge_cash_excel" >/back/accountDeal/charge_cash_excel.jsp</result>
+			<result name="chargeAndCashList_checkedEx" >/back/accountDeal/chargeAndCashList_checkedExcel.jsp</result>
+			<result name="waitrequestforcash" >/back/accountDeal/waitrequestforcash.jsp</result>
+			<result name="waitrequestforcash2" >/back/accountDeal/waitrequestforcash2.jsp</result>
+			<result name="handlerrequestforcash" >/back/accountDeal/handlerrequestforcash.jsp</result>
+			<result name="print_voucher" >/back/accountDeal/print_voucher.jsp</result>
+			<result name="exceptionforcash" >/back/accountDeal/exceptionforcash.jsp</result>
+			<result name="yhk" type="redirect">./accountDealAction!waitrequestforcash?action=${action}</result>
+			<result name="zzyc" type="redirect">./accountDealAction!waitrequestforcash?action=${action}</result>
+			<result name="cashProcess">/back/accountDeal/cashProcess.jsp</result>
+			
+			<result name="thirdAccount_js" >/back/accountDeal/thirdAccount_js.jsp</result>
+			<result name="jyrb" >/back/accountDeal/jyrb.jsp</result>
+			<result name="jyrb_extend" >/back/accountDeal/jyrb_extend.jsp</result>
+			<result name="daidian_payment" >/back/accountDeal/daidian_payment.jsp</result>
+			<result name="daidian_payment_detail" >/back/accountDeal/daidian_payment_detail.jsp</result>
+			<result name="internalTransfer" >/back/accountDeal/internalTransfer.jsp</result>
+			<result name="internalTransfer_check" >/back/accountDeal/internalTransfer_check.jsp</result>
+			<result name="internalTransfer_detail" >/back/accountDeal/internalTransfer_detail.jsp</result>
+			<result name="in_out_deal" >/back/accountDeal/in_out_deal.jsp</result>
+			<result name="in_out_deal_print" >/back/accountDeal/in_out_deal_print.jsp</result>
+			<result name="business_deal" >/back/accountDeal/business_deal.jsp</result>
+			<result name="business_deal_print" >/back/accountDeal/business_deal_print.jsp</result>
+			<result name="balance_deal" >/back/accountDeal/balance_deal.jsp</result>
+			<result name="balance_deal_print" >/back/accountDeal/balance_deal_print.jsp</result>
+			<result name="check_out_list" >/back/accountDeal/check_out_list.jsp</result>
+			<result name="centerAccount2_classify" >/back/accountDeal/centerAccount2_classify.jsp</result>
+			<result name="centerAccount2_groupByFbase" >/back/accountDeal/centerAccount2_groupByFbase.jsp</result>
+			<result name="centerAccount2_groupByFbase2" >/back/accountDeal/centerAccount2_groupByFbase2.jsp</result>
+			<result name="print_recharge_kiting_report" >/back/accountDeal/print_recharge_kiting_report.jsp</result>
+			<result name="print_recharge_kiting_report_cmb" >/back/accountDeal/print_recharge_kiting_report_cmb.jsp</result>
+			<result name="print_recharge_kiting_report_icbc" >/back/accountDeal/print_recharge_kiting_report_icbc.jsp</result>
+			<result name="center_out" >/back/accountDeal/center_out.jsp</result>
+			<result name="account_frozen_thaw" >/back/accountDeal/account_frozen_thaw.jsp</result>
+			<result name="account_frozen_thaw_detail" >/back/accountDeal/account_frozen_thaw_detail.jsp</result>
+			<result name="checkLX" >/back/accountDeal/checkLX.jsp</result>
+			<result name="checkLX_do" type="redirectAction">./accountDealAction!checkLX</result>
+			<result name="checkLX_checked" >/back/accountDeal/checkLX_checked.jsp</result>
+			<result name="print_voucher_dn" >/back/accountDeal/print_voucher_dn.jsp</result>
+			<result name="cash_risk_list" >/back/accountDeal/cash_risk_list.jsp</result>
+			<result name="yhk_cz" >/back/accountDeal/yhk_cz.jsp</result>
+			<result name="xyd_batch" >/back/accountDeal/xyd_batch.jsp</result>
+			<result name="checkXYD" >/back/accountDeal/checkXYD.jsp</result>
+			<result name="checkXYD_do" type="redirectAction">./accountDealAction!checkXYD</result>
+			
+			<result name="icbc_business_deal" >/back/accountDeal/icbc_business_deal.jsp</result>
+			<result name="icbc_business_deal_print" >/back/accountDeal/icbc_business_deal_print.jsp</result>
+			<result name="icbc_balance_deal" >/back/accountDeal/icbc_balance_deal.jsp</result>
+			<result name="icbc_balance_deal_print" >/back/accountDeal/icbc_balance_deal_print.jsp</result>
+			<result name="icbc_biangeng" >/back/accountDeal/icbc_biangeng.jsp</result>
+			<result name="icbc_tx_excel" >/back/accountDeal/icbc_tx_excel.jsp</result>
+		</action>
+    </package>
+</struts>

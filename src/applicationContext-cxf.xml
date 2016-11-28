@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jndi="http://www.springframework.org/schema/jndi" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+http://www.springframework.org/schema/jndi http://www.springframework.org/schema/jndi/spring-jndi-3.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd">
+ <import resource="classpath*:META-INF/cxf/cxf.xml" />
+ <import resource="classpath*:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
+ <import resource="classpath*:META-INF/cxf/cxf-servlet.xml" />
+<bean id="systemService" class="com.kmfex.cxfrs.impl.SystemServiceImpl" />
+<jaxrs:server id="restServiceContainer" address="/service">
+    <jaxrs:serviceBeans>
+        <ref bean="systemService" />
+    </jaxrs:serviceBeans>
+    <jaxrs:extensionMappings>
+        <entry key="json" value="application/json" />
+    </jaxrs:extensionMappings>
+    <jaxrs:languageMappings>
+           <entry key="en" value="en-gb"/>
+    </jaxrs:languageMappings>
+    <jaxrs:inInterceptors>
+         <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"></bean>
+    </jaxrs:inInterceptors>
+    <jaxrs:outInterceptors>
+         <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean>
+    </jaxrs:outInterceptors>
+    <jaxrs:providers>
+       <bean class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
+        <property name="dropRootElement" value="true" />
+        <property name="supportUnwrapped" value="true" />
+       </bean>
+   </jaxrs:providers>    
+</jaxrs:server>
+
+
+</beans>

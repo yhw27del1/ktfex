@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+ 	<!--收费项目-->
+    <package name="costcategory" namespace="/back" extends="mydefault"> 
+		<action name="costCategoryAction" class="costCategoryAction">
+			<result name="list" >/back/settlement/chargescollectable/chargesCollectableList.jsp</result>
+			<result name="ui">/back/settlement/chargescollectable/chargesCollectable.jsp</result>
+			<result name="save" type="redirect">/back/costcategory/costCategoryAction!list</result>
+		</action>     
+    </package>   
+ 	<!--收费标准-->
+    <package name="chargingstandard" namespace="/back" extends="mydefault"> 
+		<action name="chargingStandardAction" class="chargingStandardAction">
+			<result name="list">/back/settlement/chargingstandard/chargingStandardList.jsp</result>
+			<result name="ui">/back/settlement/chargingstandard/chargingStandard.jsp</result>
+			<result name="save" type="redirect">/back/chargingstandard/chargingStandardAction!list</result>
+		</action>     
+    </package> 
+    
+    <!--积分管理 -->
+	<package name="credit" namespace="/back" extends="mydefault"> 
+		<action name="creditRulesAction" class="creditRulesAction">  
+		    <result name="rules_list">/back/settlement/creditrules/rules_list.jsp</result>  
+		    <result name="rule">/back/settlement/creditrules/rule.jsp</result>  
+		    <result name="save" type="redirect">/back/settlement/creditRulesAction!rules_list</result>  
+		</action>   
+    </package>  
+</struts>

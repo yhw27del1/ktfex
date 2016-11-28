@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd ">     
+<html xmlns="http://www.w3.org/1999/xhtml ">  
+	<head>
+		<title> 投资会员月度理财报告 </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="/back/statistics/investor_month_rp/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		${download_url}
+		<table class="man-table">
+			<tr><td colspan="2"><img src="/back/statistics/investor_month_rp/images/report_head.bmp"/></td></tr>
+			<tr>
+				<td class="big_title" colspan="2">月度理财报告</td>
+			</tr>
+			<tr>
+				<td class="block-1" colspan="2">
+					尊敬的${realname}${sex}，你好！
+				</td>
+			</tr>
+			<tr>
+				<td class="block-1" colspan="2">
+					感谢您选择商金融交易服务进行资金的理财增值，以下是您${shortdate}的商金融交易理财帐户电子帐单。
+				</td>
+			</tr>
+			<tr>
+				<td class="block-1">帐单生成日：${date}</td>
+				<td class="block-1">统计单位：元</td>
+			</tr>
+			
+			<tr>
+				<td class="block-2" colspan="2">
+					帐户总体情况统计
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="block-1">当前资产总额：${zzc}</td>
+				<td class="block-1">可用余额：${kyye}</td>
+			</tr>
+			<tr>
+				<td class="block-1">冻结金额：${djje}</td>
+				<td class="block-1">持有债权：${cyzq}</td>
+			</tr>
+			<tr>
+				<td class="block-1">总收益：${zsy}</td>
+				<td class="block-1">总收益率：${zsyl}%</td>
+			</tr>
+			<tr>
+				<td class="block-1">累计入金：${ljrj}</td>
+				<td class="block-1">累计出金：${ljcj}</td>
+			</tr>
+			<tr>
+				<td class="explain" colspan="2">
+					※当前资产总额 = 可用资金 + 冻结资金 + 持有债权。<br/>
+					※累计统计数据指理财初始日至报告结束日的交易数据。
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="block-2" colspan="2">
+					本月帐户情况
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="block-1">本月借出的金额：${jcje}</td>
+				<td class="block-1">本月回收的总金额：${byhs}</td>
+			</tr>
+			<tr>
+				<td class="explain" colspan="2">
+					※本月回收的总金额 = 正常回收本息 + 提前回收本息 + 提前还款违约金 + 逾期罚息 + 代偿本金。
+				</td>
+			</tr>
+			<tr>
+				<td class="block-1">本月赚取利息：${zqlx}</td>
+				<td class="block-1">本月赚取罚息：${zqfx}</td>
+			</tr>
+			
+			<tr>
+				<td class="explain" colspan="2">
+					※本月赚取罚息 = 提前还款罚息 + 逾期罚息。
+				</td>
+			</tr>
+			<tr>
+				<td class="block-2" colspan="2">
+					风险情况
+				</td>
+			</tr>
+			<tr>
+				<td class="block-1" colspan="2">
+					<table width="100%" class="inner-table">
+						<thead>
+							<tr>
+								<th class="inner-table-th">状态</th>
+								<th class="inner-table-th">总笔数</th>
+								<th class="inner-table-th">总本金</th>
+								<th class="inner-table-th">总利息</th>
+								<th class="inner-table-th">总罚金</th>
+								<th class="inner-table-th">担保代偿率</th>
+							</tr>
+						</thead>
+						<tbody>
+							${inner-table-content}
+						</tbody>
+						<tfoot>
+							<tr>
+								<th colspan="6" align="left">
+									风险提示：请您在以后的项目投标中，注意运用风险分散机制，尽量不要把过多资金投入到一个项目中。
+								</th>
+							</tr>
+							<tr>
+								<th colspan="6" class="explain" align="left">
+									※担保代偿率=发生代偿项目本金/总投标项目本金。
+								</th>
+							</tr>
+						</tfoot>
+					</table>
+				</td>
+			</tr>
+			
+		</table>
+		<table class="man-table">
+			<tr><td>
+				<img src="${repayment_project_chart_path}"/>
+			</td></tr>
+		</table>
+	</body>
+</html>

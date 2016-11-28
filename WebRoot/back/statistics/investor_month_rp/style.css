@@ -1,0 +1,10 @@
+body{font-family:"Microsoft Yahei";}
+.man-table{width:600px;margin: 0 auto;}
+.big_title{color:#1F497D;text-align:center;font-size:24px;}
+.block-1{color:#1F497D;font-size:14px;width:600px;padding:10px 0;}
+.explain{color:#FA8B31;font-size:13px;padding:10px 0;}
+.block-2{color:#1F497D;font-size:17px;width:600px;padding:0;font-weight:bold;padding-top:20px;}
+.inner-table{border-collapse:collapse;border:1px solid black;font-size:14px;}  
+.inner-table-td{padding:5px 0;text-align: center;}
+.inner-table-th{padding:5px 0;text-align: center;background-color:#C6D9F1;color:#6995DE;}
+.download{position: fixed;}

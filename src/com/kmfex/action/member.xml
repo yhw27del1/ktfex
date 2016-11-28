@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 会员管理 -->
+	<package name="memberLevel" namespace="/back" extends="mydefault">
+		<action name="memberLevelAction" class="memberLevelAction">
+			<result name="list">/back/member/memberLevelList.jsp</result>
+			<result name="ui">/back/member/memberLevel.jsp</result>
+		</action>
+		<action name="memberTypeAction" class="memberTypeAction">
+			<result name="list">/back/member/memberTypeList.jsp</result>
+			<result name="edit">/back/member/memberTypeEdit.jsp</result>
+		</action>
+		<action name="memberBaseAction" class="memberBaseAction">
+			<result name="list">/back/member/memberBaseList.jsp</result>
+			<result name="newlist">/back/member/memberBaseList_json.jsp</result>
+			<result name="newlist_topOrg">/back/member/memberBaseList_json_topOrg.jsp</result>
+			<result name="showlog">/back/member/showlog.jsp</result>
+			<result name="showalllog">/back/member/showalllog.jsp</result>
+			<result name="exportInvestorsEx">/back/member/exportInvestorsEx.jsp</result>
+			<result name="listForChoose">/back/member/selectUserList.jsp</result>
+			<result name="tList">/back/member/tMemberBaseList.jsp</result>
+			<result name="notAuditedList">/back/member/notAuditedMemberBaseList.jsp
+			</result>
+			<result name="memberDetails">/back/member/memberBaseDetails.jsp
+			</result>
+			<result name="memberBankAccounts">/back/member/memberBaseBankAccounts.jsp
+			</result>
+			<result name="edit">/back/member/memberBaseEdit.jsp</result>
+			<result name="change">/back/member/memberBaseChange.jsp</result>
+			<result name="resetPasswordUi">/back/member/resetPasswordUi.jsp</result>
+			<result name="createMemberSuccess">/back/member/createMemberSuccess.jsp</result>
+			<result name="totalMembers">/back/member/totalMembers.jsp</result>
+			<result name="notPassAuditedList">/back/member/notPassAuditedMemberList.jsp
+			</result>
+			<result name="toAssignmentPage">/back/member/assignmentOfDebtAuthorize.jsp
+            </result>
+            <result name="assignment">/back/member/assignmentOfDebtAuthorize.jsp
+            </result>
+			<result name="assignmentsStop" />
+			<result name="assignmentsStart" />
+			<result name="checkIdCard" />
+			<result name="checkBusCode" />
+			<result name="hxthirdsign">/back/member/hxthirdsign.jsp</result>
+			<result name="hxthirdsigned">/back/member/hxthirdsigned.jsp</result>
+		</action>
+		<action name="memberAuditAction" class="memberAuditAction">
+			<result name="memberAudit">/back/member/memberBaseAudit.jsp
+			</result>
+			<result name="audit" type="redirect">/back/member/memberBaseAction!notAuditedMemberlist?membertype=${membertype}&amp;
+			</result>
+		</action>
+		<action name="memberGuaranteeAction" class="memberGuaranteeAction">
+			<result name="ajaxDetail">/back/member/memberGuaranteeAjaxDetail.jsp
+			</result>
+			<result name="list">/back/member/memberGuaranteeList.jsp
+			</result>
+			<result name="edit">/back/member/memberGuaranteeEdit.jsp
+			</result>
+			<result name="success" type="redirect">/back/memberGuaranteeAction!list
+			</result>
+		</action>
+	</package>
+</struts>

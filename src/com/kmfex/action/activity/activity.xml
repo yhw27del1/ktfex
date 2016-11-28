@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="activity" namespace="/back" extends="mydefault">
+		<action name="iphone5" class="iphone5ActivityAction">
+			<result name="rulelist">/back/activity/iphone5/rulelist.jsp</result>
+			<result name="rule">/back/activity/iphone5/rule.jsp</result>
+			<result name="save" type="redirect">/back/activity/iphone5!rulelist</result>
+			<result name="del" type="redirect">/back/activity/iphone5!rulelist</result>
+			<result name="relevance_ui">/back/activity/iphone5/relevance.jsp</result>
+			<result name="relevance_list">/back/activity/iphone5/relevancelist.jsp</result>
+			<result name="relevance_del" type="redirect">/back/activity/iphone5!relevance_list</result>
+			<result name="relevance_save" type="redirect">/back/activity/iphone5!relevance_list</result>
+		</action>
+		<action name="lend" class="investToLendAction">
+			<result name="invest_lend_list">/back/activity/invest_lend_list.jsp</result>
+			<result name="lend_ui">/back/activity/add_invest_lend.jsp</result>
+			<result name="save" type="redirect">/back/activity/lend!invest_lend_list</result>
+			<result name="del" type="redirect">/back/activity/lend!invest_lend_list</result>
+		</action>
+	</package>
+</struts>

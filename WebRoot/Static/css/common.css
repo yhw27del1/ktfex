@@ -1,0 +1,116 @@
+body {
+    font-family: '宋体';
+    font-size: 12px;
+    margin: 0 auto 0 0;
+	padding:0;
+	overflow-x:hidden;
+	/*background-color:#F9F9F9;*/
+	/*background-image:url("/Static/images/bg.gif");*/
+}
+
+/*以下是解决jquery.ui中的风琴菜单样式的*/
+#accordion div.accordion {
+    margin: 0;
+    padding-left: 28px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#accordion h3 a {
+    font-size: 10pt;
+    padding-left: 28px;
+}
+
+#accordion ul {
+    margin: 0;
+    padding: 0;
+}
+
+#accordion li {
+    list-style-type: none;
+    margin: 8px;
+}
+
+#accordion li a {
+    text-decoration: none;
+    margin: 2px;
+}
+
+.xietijiacu {
+    font-style: italic;
+    font-weight: bolder;
+}
+
+/*jquery.ui的tabs标签样式简单重写*/
+#tabs li .ui-icon-close {
+    float: left;
+    margin: 0.4em 0.2em 0 0;
+    cursor: pointer;
+}
+
+/*展示数据的表格样式*/
+div.dataList {
+    width: 100%;
+   	/*height: 100%;*/
+    margin: 0 0;
+    /*border: 1px solid #B4C9C6;*/
+}
+
+div.dataList table {
+    /*margin-top: 8px;*/
+    border-collapse: collapse;
+    width: 100%;
+}
+
+div.dataList table td, div.dataList table th {
+    border: 1px solid #eee;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+div.dataList table {
+	font-size:12px;
+	font-family:segoe ui, Arial, sans-serif;
+}
+
+#myToolBar {
+    height: 26px;
+    margin-top: 0px;
+    padding-left: 15px;
+    padding-top: 3px;
+	font-family:segoe ui, Arial, sans-serif;
+	font-size:12px;
+}
+#tooltip {
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:1px;
+	color:#333;
+	display:none;
+}
+#tooltipImg {
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:1px;
+	color:#333;
+	display:none;
+}
+#tooltipImg2 {
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:1px;
+	color:#333;
+	display:none;
+}
+
+#tooltipImg3 {
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:1px;
+	color:#333;
+	display:none;
+}

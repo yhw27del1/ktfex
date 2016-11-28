@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="cmb" namespace="/back" extends="mydefault">
+		<action name="cmbAction" class="cmbAction">
+		    <result name="request6600" >/back/cmb/request6600.jsp</result>
+		    <result name="request6500" >/back/cmb/request6500.jsp</result>
+		    <result name="request6400" >/back/cmb/request6400.jsp</result>
+		    <result name="request6410" >/back/cmb/request6410.jsp</result>
+		    <result name="request6204" >/back/cmb/request6204.jsp</result>
+		    <result name="request6203" >/back/cmb/request6203.jsp</result>
+		    <result name="request6201" >/back/cmb/request6201.jsp</result>
+		    <result name="request6200" >/back/cmb/request6200.jsp</result>
+		    <result name="request6100" >/back/cmb/request6100.jsp</result>
+		    <result name="transfer" >/back/cmb/transfer.jsp</result>
+		    <result name="protocol_state" >/back/cmb/protocol_state.jsp</result>
+		    <result name="protocol_process" >/back/cmb/protocol_process.jsp</result>
+		    <result name="history" >/back/cmb/history.jsp</result>
+		</action>
+    </package>
+</struts>

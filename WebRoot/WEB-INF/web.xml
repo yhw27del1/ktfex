@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+ 	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>      
+    <filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+  
+	<filter>
+		<filter-name>sessionFilter</filter-name>
+		<filter-class>
+			com.wisdoor.core.servlet.SessionFilter
+		</filter-class>
+		<init-param>
+			<param-name>include</param-name>
+			<param-value>back</param-value>
+		</init-param>
+		<init-param>
+			<param-name>noinclude</param-name>
+			<param-value>/back/investBaseAction!pdf,/back/accountDealAction!acWs,/back/accountDealAction!sgWs,/back/paymentRecord/paymentRecordAction!dieWs,/back/announcementAction!show,/back/financingWs!wsdb,/back/investBaseAction!agreement_ui_ws,/back/financingWs!wsdetail,/back/investBaseAction!greement_ui,/back/financingWs!xyfx,/back/investBaseAction!agreement_ui2,
+			/back/financing/agreement_bcxy.jsp,/back/announcement/announcementAction!detail,/back/zhaiquan/contractAction!preview_for_buy,/back/zhaiquan/contractAction!preview_for_sell,/back/zhaiquan/contractAction!view</param-value>
+		</init-param>
+	</filter> 
+	<filter-mapping>  
+            <filter-name>sessionFilter</filter-name>  
+            <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+  
+   <!--融资项目缓存方案开始   -->    
+    <servlet>
+		<servlet-name>initFinancingCacheServlet</servlet-name>
+		<servlet-class>com.kmfex.cache.servlet.InitFinancingCacheServlet</servlet-class> 
+		<load-on-startup>3</load-on-startup>
+	</servlet>   
+	
+	<servlet>
+		<servlet-name>otherAppCacheServlet</servlet-name>
+		<servlet-class>com.kmfex.cache.servlet.OtherAppCacheServlet</servlet-class>
+		<load-on-startup>8</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>otherAppCacheServlet</servlet-name>
+		<url-pattern>/services/othchsv</url-pattern>
+	</servlet-mapping>    
+     <!--融资项目缓存方案结束 -->      
+        
+    <!--投标方式方法自由切换开始   -->     
+	<servlet>
+		<servlet-name>investMethodFlagCacheServlet</servlet-name>
+		<servlet-class>com.kmfex.cache.servlet.InvestMethodFlagCacheServlet</servlet-class>
+		<load-on-startup>9</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>investMethodFlagCacheServlet</servlet-name>
+		<url-pattern>/services/invest_toMethod</url-pattern>
+	</servlet-mapping>    
+     <!--投标方式方法自由切换结束 -->      
+     
+         
+	<filter>
+              <filter-name>CompressingFilter</filter-name>
+              <filter-class>
+                     com.planetj.servlet.filter.compression.CompressingFilter
+              </filter-class>
+              <init-param>
+                     <param-name>debug</param-name>
+                     <param-value>false</param-value>
+              </init-param>
+              <init-param>
+                     <param-name>statsEnabled</param-name>
+                     <param-value>true</param-value>
+              </init-param>
+       </filter>
+
+       <filter-mapping>
+              <filter-name>CompressingFilter</filter-name>
+              <url-pattern>/services/*</url-pattern>
+       </filter-mapping>  
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/applicationContext.xml,/WEB-INF/classes/xfire-servlet.xml</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>parametersInit</servlet-name>
+		<servlet-class>com.wisdoor.core.servlet.SysCacheInit</servlet-class> 
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 
+ 
+ 
+ 	<filter>
+		<filter-name>systemInit</filter-name>
+		<filter-class>com.wisdoor.core.servlet.SystemInit</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>systemInit</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+  <servlet>
+  	<servlet-name>RandomCodeImage</servlet-name>
+  	<servlet-class>com.wisdoor.core.utils.AuthCodeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RandomCodeImage</servlet-name>
+    <url-pattern>/randomMyCode.jsp</url-pattern>
+  </servlet-mapping>
+
+	<filter>
+		<filter-name>openSessionInView</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>  
+ 	</filter>
+
+	<filter-mapping>
+		<filter-name>openSessionInView</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+    <filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+  	<filter-mapping>
+		<filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>  
+	</filter-mapping>  
+	
+	 <!-- 设置session 超时时间为60分钟  -->
+	 <session-config>
+	     <session-timeout>60</session-timeout>
+	 </session-config>  
+		 
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>WARN</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<!--远程接收文件的方法 -->  
+	<servlet>
+		<servlet-name>UploadRemoteFile</servlet-name>
+		<servlet-class>com.wisdoor.core.remotefile.FileServiceServlet</servlet-class> 
+		<!-- 远程允许上传附件的大小，单位字节(缺省为1MB) -->
+		<init-param>
+			<param-name>MAX_SIZE</param-name>
+			<param-value>1024000</param-value> 
+		</init-param> 
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadRemoteFile</servlet-name>
+		<url-pattern>/upload/UploadRemoteFile.html</url-pattern>
+	</servlet-mapping>
+	
+		
+    <!--  XFire 配置 -->
+	<servlet>
+		<servlet-name>xfire</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xfire</servlet-name>
+		<url-pattern>*.ws</url-pattern>
+	</servlet-mapping>
+	<servlet> 
+		<servlet-name>xfireServlet</servlet-name>
+		<servlet-class>org.codehaus.xfire.spring.XFireSpringServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xfireServlet</servlet-name> 
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+	<!-- end XFire 配置 --> 
+	
+	<!-- cxf -->
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+       <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>CXFServlet</servlet-name>
+         <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+	
+	<!-- 图片上传的SERVLET  -->
+	<servlet>
+		<servlet-name>UploadImage</servlet-name>
+		<servlet-class>com.wisdoor.core.utils.kindeditor.upload.UploadImage</servlet-class>
+		<!-- 上传图片保存的目录 -->
+		<init-param>
+			<param-name>UPLOAD_PATH</param-name>
+			<param-value>/Static/userfiles/uploadImg/</param-value>
+		</init-param>
+		<!-- 限制上传图片的大小，单位字节(缺省值为1MB) -->
+		<init-param>
+			<param-name>MAX_SIZE</param-name>
+			<param-value>1024000</param-value>
+		</init-param>
+		<init-param>
+			<!-- 上传图片的类型(缺省值为gif, jpg, jpeg, png, bmp) -->
+			<param-name>IMAGETYPES</param-name>
+			<param-value>jpg,png,bmp,jpeg,gif</param-value>
+		</init-param>
+		<!-- 上传图片的宽度，大于此宽度时图片会被压缩(缺省为不限定) -->
+		<init-param>
+			<param-name>MAX_WIDTH</param-name>
+			<param-value>500</param-value>
+		</init-param>
+		<!-- 上传图片的高度，大于此高度时图片会被压缩(缺省为不限定) -->
+		<init-param>
+			<param-name>MAX_HEIGHT</param-name>
+			<param-value>500</param-value>
+		</init-param>
+	</servlet>
+	<!-- 图片上传管理的SERVLET  -->
+	<servlet>
+		<servlet-name>UploadImageManager</servlet-name>
+		<servlet-class>com.wisdoor.core.utils.kindeditor.upload.UploadImageManager</servlet-class>
+		<!-- 上传图片保存的目录 -->
+		<init-param>
+			<param-name>UPLOAD_PATH</param-name>
+			<param-value>/Static/userfiles/uploadImg/</param-value>
+		</init-param>
+	</servlet>
+	<!-- 附件上传的SERVLET  -->
+	<servlet>
+		<servlet-name>UploadAccessory</servlet-name>
+		<servlet-class>com.wisdoor.core.utils.kindeditor.upload.UploadAccessory</servlet-class>
+		<!-- 上传附件保存的目录 -->
+		<init-param>
+			<param-name>UPLOAD_PATH</param-name>
+			<param-value>/Static/userfiles/uploadAttach/</param-value>
+		</init-param>
+		<!-- 上传附件的大小，单位字节(缺省为1MB) -->
+		<init-param>
+			<param-name>MAX_SIZE</param-name>
+			<param-value>1000000</param-value>
+		</init-param>
+		<!-- 上传文件的类型(缺省为doc, xls, ppt, pdf, txt, rar, zip,docx,xlsx,pptx) -->
+		<init-param>
+			<param-name>FILETYPES</param-name>
+			<param-value>doc,xls,ppt,zip,rar,txt,docx,xlsx,pptx</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadImage</servlet-name>
+		<url-pattern>/upload/uploadImage.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadImageManager</servlet-name>
+		<url-pattern>/upload/uploadImgManager.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadAccessory</servlet-name>
+		<url-pattern>/upload/uploadAccessory.html</url-pattern>
+	</servlet-mapping>	
+ 
+	<servlet>
+		<servlet-name>SMSService</servlet-name>
+		<servlet-class>com.wisdoor.core.servlet.SmsSendService</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SMSService</servlet-name>
+		<url-pattern>/sms/SmsService</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SMSNewService</servlet-name>
+		<servlet-class>com.wisdoor.core.servlet.SmsNewSendService</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SMSNewService</servlet-name>
+		<url-pattern>/sms/SmsNewService</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>KmfexClientServlet</servlet-name>
+		<servlet-class>com.kmfex.action.hx.KmfexClientServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>KmfexClientServlet</servlet-name>
+		<url-pattern>/hx/kmfexclient</url-pattern>
+	</servlet-mapping>
+	
+	<!-- cmb调用此servlet进行数据交互 -->
+	<servlet>
+		<servlet-name>KmfexClientForCmbServlet</servlet-name>
+		<servlet-class>com.kmfex.action.cmb.KmfexClientForCmbServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>KmfexClientForCmbServlet</servlet-name>
+		<url-pattern>/cmb/kmfexclient</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>HXBankServletLoad</servlet-name>
+		<servlet-class>com.kmfex.hxbank.HXBankServletLoad</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HXBankServletLoad</servlet-name>
+		<url-pattern>/hx/hxbLoad</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list> 
+        <welcome-file>/common/login.jsp</welcome-file>   
+    </welcome-file-list>    
+        
+	
+	<distributable />
+ 
+</web-app>

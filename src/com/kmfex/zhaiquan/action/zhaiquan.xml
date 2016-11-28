@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+    <package name="zhaiquan" namespace="/back" extends="mydefault">
+		<!--债权信息--> 
+		<action name="zhaiQuanInvestAction" class="zhaiQuanInvestAction">  
+		    <result name="jsmoney"/> 
+		    <result name="list">/back/zhaiquan/zqManagerlist.jsp</result>   
+		    <result name="list_bao">/back/zhaiquan/zqManagerlist_bao.jsp</result>   
+		    <result name="flist">/back/zhaiquan/flist.jsp</result>
+		    <result name="myzqlist">/back/zhaiquan/myzqlist.jsp</result>
+		    <result name="upZqzrState" type="redirect">/back/zhaiQuanInvestAction!list?querykeyWord=${querykeyWord}&amp;startDate=${startDate}&amp;endDate=${endDate}</result>  
+		    <result name="list_bao_return" type="redirect">/back/zhaiQuanInvestAction!list_bao?querykeyWord=${querykeyWord}</result>  
+		    <result name="detail">/back/zhaiquan/detail.jsp</result>  
+		    <result name="detailWs">/back/zhaiquan/detailWs.jsp</result> 
+		</action>   
+		<!--受让信息--> 
+		<action name="buyingAction" class="buyingAction">  
+		     <result name="mlist">/back/zhaiquan/buymlist.jsp</result>   
+		     <result name="mybuylist">/back/zhaiquan/mybuylist.jsp</result>  
+		     <result name="upState" type="redirect">/back/buyingAction!mybuylist?querykeyWord=${querykeyWord}&amp;startDate=${startDate}&amp;endDate=${endDate}</result>
+		     <result name="buyResult" /> 
+		     <result name="newBuyList" /> 
+		</action>   
+		<!--出让信息--> 
+		<action name="sellingAction" class="sellingAction">  
+		    <result name="mlist">/back/zhaiquan/sellmlist.jsp</result>  
+		    <result name="myselllist">/back/zhaiquan/myselllist.jsp</result>
+		    <result name="upState" type="redirect">/back/sellingAction!myselllist?querykeyWord=${querykeyWord}&amp;startDate=${startDate}&amp;endDate=${endDate}</result>
+		</action>   
+		<action name="contractAction" class="contractAction">  
+		    <result>/back/zhaiquan/contractlist.jsp</result>  
+		    <result name="fee">/back/zhaiquan/contractfee.jsp</result>  
+		    <result name="feePrint">/back/zhaiquan/contractfeePrint.jsp</result>  
+		    <result name="feeEx">/back/zhaiquan/contractfeeEx.jsp</result>  
+		    <result name="view">/back/zhaiquan/contract.jsp</result>  
+		    <result name="agreement" type="redirect">/back/investBaseAction!agreement_ui2?invest_record_id=${ivr_id}</result>  
+		    <result name="preview_for_buy" >/back/zhaiquan/previewcontract_buy.jsp</result>  
+		    <result name="preview_for_sell" >/back/zhaiquan/previewcontract_sell.jsp</result>  
+		    <result name="listByInvestRecordId" >/back/zhaiquan/listByInvestRecordId.jsp</result>  
+		</action> 
+		
+		<action name="buySellRuleAction" class="buySellRuleAction">
+			<result name="list">/back/zhaiquan/zqBuySellRulelist.jsp</result>
+			<result name="ui">/back/zhaiquan/zqBuySellRuleUI.jsp</result>
+			<result name="save" type="redirect">/back/buySellRuleAction!list</result>
+		</action>  
+    </package>
+</struts>

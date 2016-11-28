@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="hxbank" namespace="/back" extends="mydefault">
+		<action name="hxbankAction" class="hxbankAction">
+		    <result name="sign_in_off" >/back/hx/sign_in_off.jsp</result>
+		    <result name="gold_in_out" >/back/hx/gold_in_out.jsp</result>
+		    <result name="gold_in_request" >/back/hx/gold_in_request.jsp</result>
+		    <result name="gold_out_send" >/back/hx/gold_out_send.jsp</result>
+			
+		    <result name="subAccountSigned_ui" >/back/hx/subAccountSigned_ui.jsp</result>
+		    <result name="subAccountSync_ui" >/back/hx/subAccountSync_ui.jsp</result>
+		    <result name="tradingMarketBankBalance_ui" >/back/hx/tradingMarketBankBalance_ui.jsp</result>
+		    <result name="surrender_ui" >/back/hx/surrender_ui.jsp</result>
+		    <result name="inOutGoldDetailedCheck_ui" >/back/hx/inOutGoldDetailedCheck_ui.jsp</result>
+		    <result name="inOutGoldDetail" >/back/hx/inOutGoldDetail.jsp</result>
+		    <result name="bank_liquidation_reconciliation_detail" >/back/hx/bank_liquidation_reconciliation_detail.jsp</result>
+		    <result name="bank_liquidation_reconciliation_ui" >/back/hx/bank_liquidation_reconciliation_ui.jsp</result>
+		    <result name="sys_liquidation_ui_page" >/back/hx/sys_liquidation_ui_page.jsp</result>
+		    <result name="sys_liquidation_ui" >/back/hx/sys_liquidation_ui.jsp</result>
+		    <result name="sys_liquidation_reconciliation_ui" >/back/hx/sys_liquidation_reconciliation_ui.jsp</result>
+		    <result name="sys_liquidation_reconciliation_detail" >/back/hx/sys_liquidation_reconciliation_detail.jsp</result>
+		</action>
+    </package>
+</struts>

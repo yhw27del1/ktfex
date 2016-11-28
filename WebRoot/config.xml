@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="1.0">
+<dict>
+   <!-- <key>remote.address</key>
+    <string>http://116.55.243.30:8000/services/kmfexService</string>
+    <key>project.detail</key>
+    <string>http://116.55.243.30:8000/back/financingWs!wsdetail?id=%@&amp;appFlag=1</string>
+    <key>project.protection</key>
+    <string>http://116.55.243.30:8000/back/financingWs!xyfx?id=%@&amp;appFlag=1</string>
+    <key>project.warranty</key>
+    <string>http://116.55.243.30:8000/back/financingWs!wsdb?id=%@&amp;appFlag=1</string>
+    <key>announce.page</key>
+    <string>http://116.55.243.30:8000/back/announcement/announcementAction!detail?announcement_id=%@&amp;appFlag=1</string>
+    <key>android.version</key>
+    <string>v1.4.2</string> 
+    <key>android.downloadurl</key>
+    <string>http://www.kmfex.com/app/smart.apk</string>
+    <key>hightip.page</key>
+    <string>http://116.55.243.30:8000/app/h.jsp</string> -->    
+    <key>remote.address</key>
+    <string>http://127.0.0.1:80/services/kmfexService</string>
+    <key>project.detail</key>
+    <string>http://127.0.0.1:80/back/financingWs!wsdetail?id=%@&amp;appFlag=1</string>
+    <key>project.protection</key>
+    <string>http://127.0.0.1:80/back/financingWs!xyfx?id=%@&amp;appFlag=1</string>
+    <key>project.warranty</key>
+    <string>http://127.0.0.1:80/back/financingWs!wsdb?id=%@&amp;appFlag=1</string>
+    <key>announce.page</key>
+    <string>http://127.0.0.1:80/back/announcement/announcementAction!detail?announcement_id=%@&amp;appFlag=1</string>
+    <key>android.version</key>
+    <string>v1.4.2</string> 
+    <key>android.downloadurl</key>
+    <string>http://www.kmfex.com/app/smart.apk</string>
+    <key>hightip.page</key>
+    <string>http://127.0.0.1:80/app/h.jsp</string>
+    
+</dict>
+</plist>

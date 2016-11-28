@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="investoraction" namespace="/sheets" extends="mydefault"> 
+		<action name="investor" class="investorAction">  
+		    <result name="investList" >/back/sheets/investor/investlist.jsp</result>  
+		    <result name="investListEx" >/back/sheets/investor/investorlist_ex.jsp</result>
+		    <result name="investorlistdetaillist_ex" >/back/sheets/investor/investorlistdetaillist_ex.jsp</result> 
+		    <result name="financingList" >/back/sheets/investor/financinglist.jsp</result>  
+		    <result name="investorDetailList" >/back/sheets/investor/investdetaillist.jsp</result>    
+		    <result name="financingDetailList" >/back/sheets/investor/financingdetaillist.jsp</result>  
+		    <result name="investorDetailListNoReturn" >/back/sheets/investor/investdetaillistNoReturn.jsp</result>  
+		</action>   
+    </package>
+    
+    <package name="financeAction" namespace="/sheets" extends="mydefault"> 
+		<action name="finance" class="financeAction">  
+		    <result name="financeList">/back/sheets/finance/financinglist.jsp</result>  
+		    <result name="financeList_ex">/back/sheets/finance/financinglist_ex.jsp</result>  
+		    <result name="financerList">/back/sheets/finance/financerlist.jsp</result>  
+		    <result name="financedetail" >/back/sheets/finance/financedetail.jsp</result>    
+		    <result name="financelistdetail" >/back/sheets/finance/financelistdetail.jsp</result>    
+		</action>   
+    </package>
+    <package name="paymentRecordSheets" namespace="/sheets" extends="mydefault"> 
+		<action name="paymentRecordAction" class="paymentWithFinanceAction">  
+		    <result name="financeList">/back/sheets/payment/financinglist.jsp</result>  
+		    <result name="financeList_ex">/back/sheets/payment/financinglist_ex.jsp</result>  
+		    <result name="paymentRecordList">/back/sheets/payment/paymentrecordlist.jsp</result>  
+		    <result name="financinglist_print">/back/sheets/payment/financinglist_print.jsp</result>  
+		</action>   
+    </package>
+    
+</struts>

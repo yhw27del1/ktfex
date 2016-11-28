@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="tradeTime" namespace="/back" extends="mydefault">
+		<action name="tradeTimeAction" class="tradeTimeAction">       
+		    <result name="tradeTimeList" >/back/tradeTime/tradeTimeList.jsp</result>
+		    <result name="addTradeTime" >/back/tradeTime/addTradeTime.jsp</result>
+		    <result name="save_error" >/back/tradeTime/addTradeTime.jsp</result>
+		</action>
+    </package>
+</struts>

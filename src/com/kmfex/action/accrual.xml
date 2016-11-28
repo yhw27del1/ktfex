@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="accrual" namespace="/back" extends="mydefault">
+		<action name="accrualAction" class="accrualAction">       
+		    <result name="ui" >/back/accrual/accrual.jsp</result>
+		    <result name="calc" >/back/accrual/calc.jsp</result>
+		    <result name="calc_ex" >/back/accrual/calc_ex.jsp</result>
+		    <result name="calc2" >/back/accrual/calc2.jsp</result>
+		    <result name="calc2_ex" >/back/accrual/calc2_ex.jsp</result>
+		    <result name="calc3" >/back/accrual/calc3.jsp</result>
+		    <result name="calc3_ex" >/back/accrual/calc3_ex.jsp</result>
+		    <result name="result" >/back/accrual/result.jsp</result>
+		</action>
+    </package>
+</struts>

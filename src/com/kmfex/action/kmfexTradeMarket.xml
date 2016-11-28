@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="kmfexTradeMarket" namespace="/back" extends="mydefault">
+		<action name="kmfexTradeMarketAction" class="kmfexTradeMarketAction">       
+		    <result name="kmfexTradeMarketList" >/back/tradeTime/kmfexTradeMarketList.jsp</result>
+		    <result name="addKmfexTradeMarket" >/back/tradeTime/addKmfexTradeMarket.jsp</result>
+		    <result name="save_error" >/back/tradeTime/addKmfexTradeMarket.jsp</result>
+		    <result name="opan_close" >/back/tradeTime/open_close.jsp</result>
+		</action>
+    </package>
+</struts>

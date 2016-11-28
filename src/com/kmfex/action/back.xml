@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <!-- 管理员管理 -->
+    <package name="admin" namespace="/admin" extends="mydefault">
+		<action name="adminList" class="userManagerAction">       
+		    <result name="list" >/back/user/userList.jsp</result>     
+		</action>
+    </package>
+    <!-- 地址管理 -->
+    <package name="region" namespace="/back" extends="mydefault">
+		<action name="regionAction" class="regionAction">       
+		    <result name="list" >/back/region/regionList.jsp</result>     
+		    <result name="ui" >/back/region/region.jsp</result>     
+		    <result name="edit" type="redirect">/back/region/regionAction!list</result>     
+		    <result name="del" type="redirect">/back/region/regionAction!list</result>     
+		</action>
+    </package>
+    <!-- 银行管理 -->
+    <package name="banklibrary" namespace="/back" extends="mydefault">
+		<action name="bankLibraryAction" class="bankLibraryAction">       
+		    <result name="list" >/back/banklibrary/banklist.jsp</result>     
+		    <result name="ui" >/back/banklibrary/bank.jsp</result>     
+		    <result name="edit" type="redirect" >/back/banklibrary/bankLibraryAction!list</result>     
+		    <result name="del" type="redirect">/back/banklibrary/bankLibraryAction!list</result>     
+		</action>
+    </package>
+        <!--授权服务机构管理 -->
+    <package name="sqOrg" namespace="/back" extends="mydefault"> 
+		<action name="sqOrgAction" class="sqOrgAction">  
+		    <result name="sqList" >/back/sqorg/orgList.jsp</result>   
+		    <result name="daiLiFeeContractList" >/back/sqorg/orgDaiLiFeeHeTongList.jsp</result>
+		    <result name="dlfmodify" >/back/sqorg/DaiLiFeeHeTongEdit.jsp</result>  
+		    <result name="toDailifeiList"  type="redirect">/back/sqOrgAction!daiLiFeeContractList</result> 
+		    <result name="ui">/back/sqorg/org.jsp</result> 
+		    <result name="sqEdit"  type="redirect">/back/sqOrgAction!sqList</result> 
+		    <result name="sqAdd"  >/back/sqorg/createOrgSuccess.jsp</result> 
+		    <result name="newOrgUserUI" >/back/sqorg/user.jsp</result> 
+		    <result name="selectTree"/> 
+		    <result name="ajaxShowCoding"/>   
+		</action>   
+    </package>
+        <package name="sqUser" namespace="/back" extends="mydefault"> 
+		<action name="sqUserAction" class="sqUserAction">  
+		    <result name="sqList" >/back/squser/userList.jsp</result>   
+		</action>   
+    </package>
+    <!--行业管理 -->
+    <package name="industry" namespace="/back" extends="mydefault">
+		<action name="industryAction" class="industryAction">       
+		    <result name="list" >/back/industry/industryList.jsp</result>   
+		    <result name="listTree" >/back/industry/industryTree.jsp</result>      
+		    <result name="ui" >/back/industry/industry.jsp</result>     
+		    <result name="edit" type="redirect">/back/industry/industryAction!list</result>     
+		    <result name="del" type="redirect">/back/industry/industryAction!list</result>     
+		</action>
+    </package>
+    <!-- 公司性质管理  -->
+    <package name="companyProperty" namespace="/back" extends="mydefault">
+		<action name="companyPropertyAction" class="companyPropertyAction">       
+		    <result name="list" >/back/companyProperty/companyPropertyList.jsp</result> 
+		    <result name="listTree" >/back/companyProperty/companyPropertyTree.jsp</result>      
+		    <result name="ui" >/back/companyProperty/companyProperty.jsp</result>     
+		    <result name="edit" type="redirect">/back/companyProperty/companyPropertyAction!list</result>     
+		    <result name="del" type="redirect">/back/companyProperty/companyPropertyAction!list</result>     
+		</action>
+    </package>
+    <!-- 公告管理  -->
+    <package name="announcement" namespace="/back" extends="mydefault">
+		<action name="announcementAction" class="announcementAction">       
+		    <result name="list_normal">/back/announcement/announcementList_normal.jsp</result>     
+		    <result name="list_assessor">/back/announcement/announcementList_assessor.jsp</result>     
+		    <result name="ui">/back/announcement/announcement.jsp</result>  
+		    <result name="state_normal" type="redirect">/back/announcement/announcementAction!list_normal</result>  
+		    <result name="state_assessor" type="redirect">/back/announcement/announcementAction!list_assessor</result>  
+		    <result name="edit" type="redirect">/back/announcement/announcementAction!list_normal</result>     
+		    <result name="del" type="redirect">/back/announcement/announcementAction!list_normal</result>     
+		    <result name="show">/back/announcement/show.jsp</result>     
+		    <result name="detail">/back/announcement/detail.jsp</result>     
+		    <result name="appdetail">/app/notice.jsp</result>     
+		</action>
+    </package>
+    <!-- 自助管理  -->
+    <package name="selfmanager" namespace="/back" extends="mydefault">
+		<action name="changePasswordAction" class="changePasswordAction">       
+		    <result name="save">/back/selfmanager/changepassword.jsp</result>
+		    <result name="login">/common/login.jsp</result>
+		</action>
+		<action name="treatyBaseAction" class="treatyBaseAction">       
+		    <result name="list">/back/treaty/treatylist.jsp</result>
+		    <result name="login">/common/login.jsp</result>
+		</action>
+    </package>
+    
+</struts>

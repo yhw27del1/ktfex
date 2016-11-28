@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <cache-config>  
+        <cache name="menuCacheGlobal"  updatesort="year" cachetype="select" sorthql=" " selecthql="select o from Menu o where o.parent is not null" maxresult="0"/>
+        <cache name="menuRootCacheGlobal"  updatesort="year" cachetype="select" sorthql=" " selecthql="select o from Menu o where o.parent is not null and o.parent.id='2'" maxresult="0"/>
+     </cache-config>		   
+</service-config>

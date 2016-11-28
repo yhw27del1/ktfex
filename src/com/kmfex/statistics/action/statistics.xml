@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="statistics" namespace="/back" extends="mydefault">
+		<action name="stcsMemBaseAction" class="stcsMemBaseAction">  
+			<!--      
+		    <result name="test">/back/financing/businessTypeList.jsp</result>
+			<result name="ui">/back/financing/businessType.jsp</result>			
+			<result name="edit" type="redirect">/back/financing/businessTypeAction!list</result>   
+			 -->
+		</action>		
+		<action name="jysxFeeAction" class="jysxFeeAction">	
+			<result name="detail_list_excel">/back/statistics/stcs_ii_fee_org_detail_excel.jsp</result>
+		</action>  
+    </package>
+    <!--授权中心交易跟踪-->
+    <package name="stcsAuthority" namespace="/back" extends="mydefault">
+		<action name="stcsAuthorityAction" class="stcsAuthorityAction">       
+		    <result name="m_a_Authoritys">/back/statistics/m_a_Authoritys.jsp</result> 
+		    <result name="m_a_jyl">/back/statistics/m_a_jyl.jsp</result> 
+		    <result name="m_a_hk">/back/statistics/m_a_hk.jsp</result> 
+		    <result name="m_a_hy">/back/statistics/m_a_hy.jsp</result>  
+		</action>		
+    </package>   
+    <package name="jfreeChart" namespace="/statistics"  extends="mydefault">
+         <result-types>
+            <result-type name="chart" class="org.apache.struts2.dispatcher.ChartResult"></result-type>
+        </result-types> 
+	     <action name="jfcJylAction" class="jfreeChartJylAction"> 
+			<result type="chart"> 
+			  <param name="width">700</param> 
+			  <param name="height">400</param> 
+			</result>
+		</action>
+		<action name="jfcHyAction" class="jfreeChartHyAction"> 
+            <result type="chart"> 
+              <param name="width">700</param> 
+              <param name="height">400</param> 
+            </result>
+        </action>    	
+    </package>   
+
+    <!--投资会员月度理财报告-->
+    <package name="stcsMouthLiCai" namespace="/back" extends="mydefault">
+		<action name="stcsMouthLiCaiAction" class="stcsMouthLiCaiAction">       
+		</action>		
+    </package>   
+    <!--代理费账单-->
+    <package name="stcsDaiLiFee" namespace="/back" extends="mydefault">
+		<action name="stcsDaiLiFeeAction" class="stcsDaiLiFeeAction">       
+		    <result name="mouthfee_list">/back/statistics/mouthfee_list.jsp</result>  
+		    <result name="dailifee_ex">/back/statistics/mouthfee_ex.jsp</result> 
+		    <result name="mouthfee_detail">/back/statistics/mouthfee_detail.jsp</result>  
+		</action>		
+    </package>         
+</struts>

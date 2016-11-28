@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      xmlns:aop="http://www.springframework.org/schema/aop"      
+      xmlns:tx="http://www.springframework.org/schema/tx"       
+      xmlns:jdbc="http://www.springframework.org/schema/jdbc"       
+      xmlns:context="http://www.springframework.org/schema/context"      
+      xsi:schemaLocation="       
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd       
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd       
+      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd       
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd       
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" >           
+  	<context:annotation-config /> 
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+	<!--  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="autoCommitOnClose" value="true"/>
+        <property name="checkoutTimeout" value="${cpool.checkoutTimeout}"/>
+        <property name="initialPoolSize" value="${cpool.minPoolSize}"/>
+        <property name="minPoolSize" value="${cpool.minPoolSize}"/>
+        <property name="maxPoolSize" value="${cpool.maxPoolSize}"/>
+        <property name="maxIdleTime" value="${cpool.maxIdleTime}"/>
+        <property name="acquireIncrement" value="${cpool.acquireIncrement}"/>
+        <property name="maxStatements" value="0"/>
+        <property name="checkoutTimeout" value="100"/>
+        <property name="maxIdleTimeExcessConnections" value="${cpool.maxIdleTimeExcessConnections}"/>
+	</bean>
+	-->
+	
+	
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="idleConnectionTestPeriodInMinutes" value="240"/>
+		<property name="idleMaxAgeInMinutes" value="60"/>
+		<property name="maxConnectionsPerPartition" value="10"/>
+		<property name="minConnectionsPerPartition" value="3"/>
+		<property name="partitionCount" value="2"/>
+		<property name="acquireIncrement" value="10"/>
+		<property name="statementsCacheSize" value="0"/>
+		<property name="releaseHelperThreads" value="5"/>
+		<property name="connectionTimeoutInMs" value="5000"/>  
+	</bean>
+
+	<bean class="springannotationplugin.AnnotationBeanPostProcessor">
+		<property name="fileEncoding" value="utf-8" ></property>
+		<property name="location" value="classpath:static_constant.properties"></property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.wisdoor.core.model</value> 
+				<value>com.kmfex.model</value>    
+				<value>com.kmfex.zhaiquan.model</value> 
+				<value>com.kmfex.autoinvest.model</value> 
+			</list>
+		</property> 
+		<property name="hibernateProperties"> 
+			<props> 
+			    <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>--> 
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop> 
+                <prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.default_schema">kt</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="hibernate.autoReconnect">true</prop>  
+			</props>
+		</property>
+	</bean>
+	
+	
+     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+         <property name="dataSource" ref="dataSource"/>
+     </bean>
+     
+     
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="logsService" class="com.wisdoor.core.service.impl.LogsServiceImpl"></bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+ 	
+	
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>classpath:ehcache.xml</value> 
+		</property> 
+		<property name="shared" value="true" /> 
+	</bean>
+	
+ 	
+	<bean id="businessCache" class="com.wisdoor.core.cache.BusinessCache" primary="true">
+        <property name="cache">
+			<bean class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+				<property name="cacheManager" ref="cacheManager" />
+				<property name="cacheName" value="businessCache" />
+			</bean>
+		</property>
+	</bean> 
+ 	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:component-scan base-package="com.kmfex"/>
+	<context:component-scan base-package="com.wisdoor"/>
+</beans>

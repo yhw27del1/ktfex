@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <!-- 会员管理 -->
+    <package name="businessType" namespace="/back" extends="mydefault">
+		<action name="businessTypeAction" class="businessTypeAction">       
+		    <!--  <result name="list" >/back/financing/businessTypeList.jsp</result>-->
+		    <result name="list_for_json" >/back/financing/businessTypeList_json.jsp</result>
+		     <result name="ui" >/back/financing/businessType.jsp</result> 					
+			<result name="edit" type="redirect">/back/financing/businessTypeAction!list</result>   
+		</action>		
+		<action name="investConditionAction" class="investConditionAction">       
+		    <result name="list" >/back/financing/investConditionList.jsp</result>
+			<result name="ui" >/back/financing/investCondition.jsp</result>			
+			<result name="edit" type="redirect">/back/financing/investConditionAction!list</result>   
+		</action>		
+    </package>
+    
+     <!--投标用户分组管理 -->
+    <package name="userGroupFinancing" namespace="/back" extends="mydefault">
+		<action name="userGroupAction" class="userGroupAction">       
+		    <result name="list" >/back/financing/groupList.jsp</result>
+		    <result name="select">/back/financing/selectUserList.jsp</result>
+		    <result name="groupSelectUserList" >/back/financing/groupSelectUserList.jsp</result>
+		    <result name="delUser" type="redirect">/back/userGroupAction!groupSelectUserList?id=${id}</result>
+		    <result name="addUsers" type="redirect" >/back/userGroupAction!list</result>    
+		    <result name="addUser"/>       
+		    <result name="ui" >/back/financing/group.jsp</result>     
+		    <result name="edit" type="redirect" >/back/userGroupAction!list</result>     
+		    <result name="del" type="redirect">/back/userGroupAction!list</result>     
+		    <result name="stop" type="redirect">/back/userGroupAction!list</result>     
+		    <result name="start" type="redirect">/back/userGroupAction!list</result>  
+		    <result name="groupSelectUser1List" >/back/financing/groupSelectUser1List.jsp</result>
+		    <result name="delUser1" type="redirect">/back/userGroupAction!groupSelectUser1List?id=${id}</result>
+		    <result name="addUser1"/>            
+		    <result name="clearInvestCount"/>            
+		    <result name="delGroupUsers"/>            
+		</action>     	 	
+    </package>
+    
+   <!--融资项目申请 -->
+    <package name="preFinancingBase" namespace="/back" extends="mydefault"> 
+		<action name="preFinancingBaseAction" class="preFinancingBaseAction">  
+		    <result name="list" >/back/financing/preFinancingBaseList.jsp</result>  
+ 		    <result name="ui">/back/financing/preFinancingBase.jsp</result>
+			<result name="c_ui">/back/financing/preFinancingBase_c.jsp</result>			
+ 		    <result name="detail">/back/financing/preFinancingBaseDetail.jsp</result>  
+		    <result name="edit"  type="redirect">/back/preFinancingBaseAction!list</result> 
+		    <result name="xyUi">/back/financing/preXyFinancingBase.jsp</result> 
+		    <result name="xyFinish"  type="redirect">/back/preFinancingBaseAction!list</result>  
+		    <result name="xybohui"  type="redirect">/back/preFinancingBaseAction!list</result>  
+		    <result name="stop"  type="redirect">/back/preFinancingBaseAction!list</result> 
+		</action>  
+    </package>  
+   <!--融资项目管理 -->
+    <package name="financingBase" namespace="/back" extends="mydefault"> 
+		<action name="financingBaseAction" class="financingBaseAction">  
+		    <result name="list" >/back/financing/financingBaseList.jsp</result>
+		    <result name="list_excel" >/back/financing/financingBaseList_excel.jsp</result>
+		    <result name="list_for_subscribe" >/back/financing/financingBaselist_for_subscribe.jsp</result>
+            <result name="list_for_search_json" >/back/financing/financingBaseList_for_search_json.jsp</result>
+		    <result name="list_for_subscribe_json" >/back/financing/financingBaseList_for_subscribe_json.jsp</result>
+			<result name="list_for_yiqianyue_json" >/back/financing/financingBaseList_for_yiqianyue_json.jsp</result>
+			<result name="listorder" >/back/financing/financingBaseListOrder.jsp</result>
+			<result name="listok" >/back/financing/financingBaseListOk.jsp</result>
+ 		    <result name="listtoday" >/back/financing/financingBaseListToday.jsp</result>     
+ 		    <result name="list_for_nofabu" >/back/financing/financingBaselist_for_nofabu.jsp</result>  
+		    <result name="guadanUI">/back/financing/financingBaseGuadanDetail.jsp</result> 
+		    <result name="guadan"  type="redirect">/back/financingBaseAction!for_order</result>   
+		    <result name="guadanNotUI"  type="redirect">/back/financingBaseAction!for_order</result>   
+		    <result name="fabuUI">/back/financing/financingBasefabuDetail.jsp</result> 
+		    <result name="fabu"  type="redirect">/back/financingBaseAction!list_for_nofabu</result>   
+		    <result name="fabuBohui"  type="redirect">/back/financingBaseAction!list_for_nofabu</result>   
+		    <result name="listForPerson" >/back/financing/financingBasePersonList.jsp</result> 
+		    <result name="investlist" >/back/financing/financingBaseInvestList.jsp</result>    
+		    <result name="ui">/back/financing/financingBase.jsp</result>
+		    <result name="detail">/back/financing/financingBaseDetail.jsp</result>  
+		    <result name="edit"  type="redirect">/back/financingBaseAction!list</result>  
+		    <result name="checkList"  >/back/financing/financingBaseCheckList.jsp</result> 
+		    <result name="checkUI">/back/financing/financingBaseCheckDetail.jsp</result>
+		    <result name="check"  type="redirect">/back/financingBaseAction!checkList</result>
+		    <result name="noCheck"  type="redirect">/back/financingBaseAction!checkList</result>   
+		    <result name="del"  type="redirect">/back/financingBaseAction!list</result>
+		    <result name="finish"  type="redirect">/back/financingBaseAction!list</result>
+		    <result name="reNew">/back/financing/financingBase.jsp</result>
+		    <result name="financiers"/>
+		    <result name="guarantees"/> 
+		    <result name="qyTypesAj"/> 
+		    <result name="receipts">/back/financing/financingReceipts.jsp</result>
+		    <result name="agreement_ui">/back/financing/agreement_ui_financier.jsp</result>
+		    <result name="agreement_xyd_ui">/back/financing/agreement_xyd_ui_financier.jsp</result>
+		    <result name="listQuery" >/back/financing/financingBaselistQuery.jsp</result>
+		    <result name="listRzQuery" >/back/financing/financingBaselistRzQuery.jsp</result>
+		    <result name="listQianyue" >/back/financing/financingBaselistQianyue.jsp</result>  
+		    <result name="qianyueUI">/back/financing/financingQianyue.jsp</result>
+		    <result name="delayList">/back/member/memberBaseList.jsp</result>
+		    <result name="qianyue" type="redirect">/back/financingBaseAction!listQianyue</result> 
+		    
+		    <result name="myListQianyue" >/back/financing/financingBaseMyListQianyue.jsp</result>   
+		    <result name="myQianyueUI">/back/financing/financingMyQianyueUI.jsp</result>
+		    <result name="financingContract">/back/financing/financingContract.jsp</result>
+		    <result name="myQianyue" type="redirect">/back/financingBaseAction!myListQianyue</result>  
+		    <result name="myContracts">/back/financing/myContracts.jsp</result> 
+		    <result name="logs">/back/financing/logs.jsp</result> 
+		    <result name="dqlb">/back/manframe.jsp</result> 
+		    <result name="prjournaling">/back/financing/prjournaling.jsp</result> 
+		    <result name="prjournaling_xyd">/back/financing/prjournaling_xyd.jsp</result> 
+		    <result name="delayUI">/back/financing/financingBaseDelayUI.jsp</result> 	
+			<result name="list_qianyue">/back/financing/list_qianyue.jsp</result> 
+			<result name="showInvest">/back/financing/showInvest.jsp</result> 
+			<result name="end_list">/back/financing/financingBaselistEnd.jsp</result> 
+			<result name="print_finance_voucher">/back/financing/print_finance_voucher.jsp</result>
+			<result name="print_transactions_report">/back/financing/print_transactions_report.jsp</result>
+			<result name="export_transactions_report">/back/financing/export_transactions_report.jsp</result>
+			<result name="print_end_list">/back/financing/print_end_list.jsp</result>
+			<result name="export_end_list">/back/financing/export_end_list.jsp</result>
+			<result name="hesuanUI">/back/financing/financingCost.jsp</result>
+			<result name="dbhtFileList">/back/financing/dbhtFileList.jsp</result>
+		    <result name="saveDbhtFile" type="redirect">/back/financingBaseAction!dbhtFileList?id=${id}</result> 
+		    <result name="delDbhtFile" type="redirect">/back/financingBaseAction!dbhtFileList?id=${id}</result> 
+		</action>  
+		 <action name="financingCostAction" class="financingCostAction">  
+		    <result name="list" >/back/financing/financingCostList.jsp</result>   
+		    <result name="listCost_print" >/back/financing/financingCostList_print.jsp</result>   
+		    <result name="cost_print" >/back/financing/financingCost_print.jsp</result>   
+		    <result name="finishList" >/back/financing/financingCostFinishList.jsp</result> 
+		    <result name="financingBaseList_qianyued" >/back/financing/financingBaseList_qianyued.jsp</result> 
+		    <result name="listFeeForPerson" >/back/financing/financingCostPersonList.jsp</result> 
+		</action> 
+		 <action name="financingWs" class="financingWsAction">  
+		    <result name="xyfx" >/back/financing/wsXyfx.jsp</result>   
+		    <result name="wsdetail" >/back/financing/wsRzxx.jsp</result>    
+		    <result name="wsdb" >/back/financing/wsRzDb.jsp</result>  
+		      
+		    <result name="appxyfx" >/app/wsXyfx.jsp</result>   
+		    <result name="appwsdetail" >/app/wsRzxx.jsp</result>    
+		    <result name="appwsdb" >/app/wsRzDb.jsp</result>    
+		</action>  
+    </package>
+    
+	<!--担保公司管理统计相关 -->
+    <package name="guarantee" namespace="/back" extends="mydefault">  
+		 <action name="guaranteeAction" class="guaranteeAction">  
+		    <result name="list" >/back/financing/guarantFinanCostList.jsp</result>  
+		</action>  
+		<action name="guaranteeDetailAction" class="guaranteeDetailAction">  
+		    <result name="list" >/back/financing/guarantFinanCostDetailList.jsp</result>  
+		</action>  
+    </package>
+    
+	<!--投标管理 -->
+	<package name="investBase" namespace="/back" extends="mydefault"> 
+		<action name="investBaseAction" class="investBaseAction">  
+		    <result name="investUI">/back/financing/investPage.jsp</result>  
+		    <result name="investResult">/back/financing/investResult.jsp</result>  
+		    <result name="recordList">/back/financing/investRecord.jsp</result>  
+		    <result name="recordListDetail">/back/financing/investRecordDetail.jsp</result>  
+		    <result name="recordListForPerson">/back/financing/investRecordtForPerson.jsp</result>  
+		    <result name="contractDetail">/back/financing/contractDetail.jsp</result>  
+		    <result name="contractDetail_ex">/back/financing/contractDetail_ex.jsp</result>  
+		    <result name="agreement_ui">/back/financing/agreement_ui_investor.jsp</result>
+		    <result name="agreement_ui_3">/back/financing/agreement_ui_investor_3.jsp</result>
+		    <result name="agreement_ui_2">/back/financing/agreement_ui_investor_2.jsp</result>
+		    <result name="agreement_ui_day">/back/financing/agreement_ui_investor_day.jsp</result>
+		    <result name="agreement_ui_day_abc">/back/financing/agreement_ui_investor_day_abc.jsp</result> 
+			<result name="agreement_ui_day_afternoon">/back/financing/agreement_ui_investor_day_afternoon.jsp</result>
+			<result name="agreement_ui_day_afternoon2">/back/financing/agreement_ui_investor_day_afternoon2.jsp</result>
+		    <result name="agreement_ui_c_x">/back/financing/agreement_ui_investor_c_x.jsp</result>  
+		    <result name="agreement_ui_c_a">/back/financing/agreement_ui_investor_c_a.jsp</result> 
+		    
+		    
+		    <result name="agreement_ui_day_20140604">/back/financing/agreement_ui_investor_day_20140604.jsp</result>
+		    <result name="agreement_ui_day_abc_20140604">/back/financing/agreement_ui_investor_day_abc_20140604.jsp</result> 
+			<result name="agreement_ui_day_afternoon_20140604">/back/financing/agreement_ui_investor_day_afternoon_20140604.jsp</result>
+			<result name="agreement_ui_day_afternoon2_20140604">/back/financing/agreement_ui_investor_day_afternoon2_20140604.jsp</result> 
+		    <result name="agreement_ui_2_20140604">/back/financing/agreement_ui_investor_2_20140604.jsp</result>  
+		    <result name="agreement_ui_3_20140604">/back/financing/agreement_ui_investor_3_20140604.jsp</result> 
+		    
+		    <result name="agreement_ui_ws">/back/webservicePage/agreement_ui_investor.jsp</result> 
+		    <result name="agreement_ui_2_ws">/back/webservicePage/agreement_ui_investor_2.jsp</result>
+		    <result name="agreement_ui_day_ws">/back/webservicePage/agreement_ui_investor_day.jsp</result> 
+		    <result name="agreement_ui_day_abc_ws">/back/webservicePage/agreement_ui_investor_day_abc.jsp</result> 		   
+		    <result name="agreement_ui_c_x_ws">/back/webservicePage/agreement_ui_investor_c_x.jsp</result>  
+		    <result name="agreement_ui_c_a_ws">/back/webservicePage/agreement_ui_investor_c_a.jsp</result>  
+		    <result name="agreement_ui_day_afternoon_ws">/back/webservicePage/agreement_ui_investor_day_afternoon.jsp</result>
+		    <result name="agreement_ui_day_afternoon2_ws">/back/webservicePage/agreement_ui_investor_day_afternoon2.jsp</result>
+		    
+		    
+		    <result name="agreement_ui_day_20140604_ws">/back/webservicePage/agreement_ui_investor_day_20140604.jsp</result>
+		    <result name="agreement_ui_day_abc_20140604_ws">/back/webservicePage/agreement_ui_investor_day_abc_20140604.jsp</result> 
+			<result name="agreement_ui_day_afternoon_20140604_ws">/back/webservicePage/agreement_ui_investor_day_afternoon_20140604.jsp</result>
+			<result name="agreement_ui_day_afternoon2_20140604_ws">/back/webservicePage/agreement_ui_investor_day_afternoon2_20140604.jsp</result> 
+		    <result name="agreement_ui_2_20140604_ws">/back/webservicePage/agreement_ui_investor_2_20140604.jsp</result>  
+		    <result name="agreement_ui_3_20140604_ws">/back/webservicePage/agreement_ui_investor_3_20140604.jsp</result> 
+  
+		    <result name="dyq_20140609">/back/financing/agreement_ui_investor_3_20140609.jsp</result> 
+		      
+		    <result name="dyq_20140609_ws">/back/webservicePage/agreement_ui_investor_3_20140609.jsp</result>  
+
+		    
+		    <result name="day_ABC_20140609">/back/financing/day_ABC_20140609.jsp</result>
+		    <result name="day_ABC_20140609_ws">/back/webservicePage/day_ABC_20140609.jsp</result>
+		    
+		    <result name="biaozhun_20140609">/back/financing/biaozhun_20140609.jsp</result>
+		    <result name="biaozhun_20140609_ws">/back/webservicePage/biaozhun_20140609.jsp</result>
+		</action>   
+    </package>
+	<!--还款记录 -->
+	<package name="paymentRecord" namespace="/back" extends="mydefault"> 
+		<action name="paymentRecordAction" class="paymentRecordAction">    
+		    <result name="list">/back/paymentrecord/list.jsp</result>  
+		    <result name="list_die">/back/paymentrecord/list_die.jsp</result>  
+		    <result name="list_die_ex">/back/paymentrecord/list_die_ex.jsp</result>  
+		    <result name="list_qianyue">/back/paymentrecord/list_qianyue.jsp</result>  
+		    <result name="list_qianyue_invest">/back/paymentrecord/list_qianyue_invest.jsp</result>  
+		    <result name="list_qianyue_buy">/back/paymentrecord/list_qianyue_buy.jsp</result>  
+		    <result name="list_qianyue_sell">/back/paymentrecord/list_qianyue_sell.jsp</result>  
+		    <result name="list_wait_date">/back/paymentrecord/list_wait_date.jsp</result>  
+		    <result name="list_wait_date_ex">/back/paymentrecord/list_wait_date_ex.jsp</result>
+		      
+		    <result name="list_yqhktx">/back/paymentrecord/list_yqhktx.jsp</result>  
+		    <result name="list_yqhktx_ex">/back/paymentrecord/list_yqhktx_ex.jsp</result>  
+		    <result name="list_jqhktx">/back/paymentrecord/list_jqhktx.jsp</result>  
+		    <result name="list_jqhktx_ex">/back/paymentrecord/list_jqhktx_ex.jsp</result>  
+		    <result name="list_rzhkjh">/back/paymentrecord/list_rzhkjh.jsp</result>  
+		    <result name="list_rzhkjh_ex">/back/paymentrecord/list_rzhkjh_ex.jsp</result>  
+		    <result name="list_rzhkqkcx">/back/paymentrecord/list_rzhkqkcx.jsp</result>  
+		    <result name="list_rzhkqkcx_ex">/back/paymentrecord/list_rzhkqkcx_ex.jsp</result>  
+		    <result name="list_zdye">/back/paymentrecord/list_zdye.jsp</result>  
+		    <result name="list_zdye_ex">/back/paymentrecord/list_zdye_ex.jsp</result>  
+		    
+		    <result name="list_other">/back/paymentrecord/list_other.jsp</result>
+		    <result name="list_other_ex">/back/paymentrecord/list_other_ex.jsp</result>
+			<result name="list_tq">/back/paymentrecord/list_tq.jsp</result>  
+			<result name="list_tq_ex">/back/paymentrecord/list_tq_ex.jsp</result>  
+		    <result name="dieWs">/back/paymentrecord/dieWs.jsp</result> 
+		    <result name="dieWeb">/back/paymentrecord/dieWeb.jsp</result> 
+		    <result name="list_approve">/back/paymentrecord/list_approve.jsp</result>  
+		    <result name="list_view">/back/paymentrecord/list_view.jsp</result>
+		    <result name="list_wait">/back/paymentrecord/list_wait.jsp</result>
+		    <result name="list_paymentRecord">/back/paymentrecord/list_paymentRecord.jsp</result>
+		    <result name="paymenttemplate">/back/paymentrecord/paymenttemplate.jsp</result>
+		    <result name="paymentrecord_list_standby">/back/paymentrecord/paymentrecord_list_standby.jsp</result>
+		    <result name="paymentrecord_list_single">/back/paymentrecord/paymentrecord_list_single.jsp</result>
+		    <result name="paymentrecord_list_preaudit">/back/paymentrecord/paymentrecord_list_preaudit.jsp</result>
+		    <result name="paymentrecord_list_query_print">/back/paymentrecord/paymentrecord_list_query_print.jsp</result>
+		    <result name="paymentrecord_list_do_print">/back/paymentrecord/paymentrecord_list_do_print.jsp</result>
+		    <result name="paymentrecord_details_do_print">/back/paymentrecord/paymentrecord_details_do_print.jsp</result>
+		    <result name="printForVoucherOfPayment">/back/paymentrecord/printForVoucherOfPayment.jsp</result>
+		</action>   
+    </package>
+    
+    
+    
+    
+</struts>

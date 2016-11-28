@@ -1,0 +1,167 @@
+#container {
+    margin: 0 auto;
+    width: 100%;
+	
+
+}
+
+#header {
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+	padding-bottom:10px;
+    padding-right: 10px;
+}
+
+
+
+#header div {
+    height: 70px;
+}
+
+#login {
+    height: 105px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+	padding-bottom:5px;
+}
+
+#login div {
+    height: 100px;
+}
+
+#topMenu {
+    height: 28px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#topMenu div {
+    height: 28px;
+}
+
+#mainContent {
+    height: auto;
+}
+
+#leftMenu {
+    float: left;
+    height: auto;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+	
+}
+
+.leftMenuW1{
+	width: 220px;
+	position:relative
+}
+.leftMenuW2{
+	width: 0px;
+	display:none;
+}
+
+#rightContent {
+    height: auto;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-button: 5px;
+	padding-bottom: 5px;
+	
+}
+
+.rightContentM1{
+	margin-left: 232px !important;
+   /* margin-left: 232px;*/
+	/*margin: 0 auto;*/
+   position:relative;
+	
+	
+
+}
+.rightContentM2{
+    margin-left: 0px;
+}
+
+#foot {
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+	padding-bottom:5px;
+}
+
+#foot div {
+    height: 50px;
+}
+
+.minHeight{min-height:450px;}
+
+
+.head {
+    border-bottom: 2px solid #E2E2E2;
+    height: 50px;
+	padding-left: 10px;
+    padding-top: 10px;
+	padding-bottom:5px;
+    padding-right: 5px;
+}
+.head .inner {
+	 height: 50px;
+     position: relative;
+}
+.head .extra_op {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+}
+.head .extra_op .login_info {
+    color: #504c4c;
+    float: left;
+    line-height: 25px;
+}
+
+.head .extra_op .login_info a {
+    line-height: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+a.hit {
+    color: #504c4c;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.spliterarrow{
+	cursor:pointer;
+	background-color:#f2f7fd;
+	width: 8px;	
+	height:auto;
+	float:left;
+	/*margin-left: 226px;*/
+}
+#switchPoint{
+	vertical-align:middle;
+}
+
+#logo
+{
+	width:50px;
+	height:50px;
+	float:left;
+}
+#title1
+{
+	height:50px;
+	float:left;
+	line-height:50px;
+	margin-left:10px;
+	color:#4f81bd;
+	font-family:"свт╡" ;
+	font-size:22px;
+	font-weight:bold;
+}

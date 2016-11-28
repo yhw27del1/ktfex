@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>  
+	<import resource="classpath:org/codehaus/xfire/spring/xfire.xml" />  
+ 	<bean id="webAnnotations" class="org.codehaus.xfire.annotations.jsr181.Jsr181WebAnnotations"  lazy-init="false"/>
+ 	 <bean id="jsr181HandlerMapping" class="org.codehaus.xfire.spring.remoting.Jsr181HandlerMapping"  lazy-init="false">
+	  <property name="xfire" ref="xfire"/>
+	  <property name="webAnnotations" ref="webAnnotations"/>
+	 </bean> 
+</beans>  

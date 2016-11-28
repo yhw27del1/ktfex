@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+    <!-- 配置所有系统后台通用的东东(比如权限管理....),其他新建 -->
+    <!--机构管理 -->
+    <package name="org" namespace="/sys_" extends="mydefault"> 
+		<action name="orgAction" class="orgAction">  
+		    <result name="list" >/sys_/org/orgList.jsp</result>    
+		    <result name="ui">/sys_/org/org.jsp</result> 
+		    <result name="edit"  type="redirect">/sys_/orgAction!list</result> 
+		    <result name="del"  type="redirect">/sys_/orgAction!list</result> 
+		    <result name="selectTree"/>   
+		</action>       
+    </package>
+    <!--用户管理 -->
+    <package name="user" namespace="/sys_" extends="mydefault"> 
+		<action name="userAction" class="userAction">  
+		    <result name="list"  >/sys_/user/userList.jsp</result>   
+		    <result name="index" >${directUrl}</result> 
+		    <result name="loginPage" >${directUrl}</result>      
+		    <result name="ui">/sys_/user/user.jsp</result> 
+		    <result name="edit"  type="redirect">/sys_/userAction!list</result> 
+		    <result name="del"  type="redirect">/sys_/userAction!list</result> 
+		    <result name="start"  type="redirect">/sys_/userAction!list</result> 
+		    <result name="stop"  type="redirect">/sys_/userAction!list</result> 
+		    <result name="loadLeftMenu">/back/leftframe.jsp</result> 
+		    <result name="userinfo">/back/userinfo.jsp</result>
+		    <result name="menuroot">/back/mainframe.jsp</result>  
+            <result name="menuroot_top">/back/topframe.jsp</result> 
+		    <result name="edit2">/back/user/createOrgUserSuccess.jsp</result>        
+		</action>     
+    </package>    
+    <package name="sysUser"  namespace="/sysCommon" extends="mydefault"> 
+		<action name="sysUserAction" class="userAction">  
+		 	 <result name="validateUser"/> 
+		 	 <result name="validateUser2"/> 
+		 	 <result name="validateUser3"/> 
+		 	 <result name="reSetPassWord"/> 
+		 	 <!--<result name="pilPassWords"/>-->
+		 	 <result name="validateCode"/>      
+		</action>    
+		 <action name="sysOrgAction" class="orgAction">  
+		 	 <result name="validateOrg"/>      
+		</action>     
+    </package>     
+    
+    <!--角色管理 -->
+    <package name="role" namespace="/sys_" extends="mydefault"> 
+		<action name="roleAction" class="roleAction">
+		     <result name="list" >/sys_/role/roleList.jsp</result>       
+		 	 <result name="ui">/sys_/role/role.jsp</result> 
+		 	 <result name="getMenuTree"/>  
+		     <result name="edit"  type="redirect">/sys_/roleAction!list</result> 
+		     <result name="del"  type="redirect">/sys_/roleAction!list</result>    
+		</action>     
+    </package>    
+    <!--通用附件类 -->
+    <package name="sysFile"  namespace="/sysCommon" extends="mydefault"> 
+		<action name="sysFileUpload" class="fileUploadAction"> 
+		 	 <result name="saveUploadFile"/>    
+		 	 <result name="saveUploadFiles"/> 
+		 	 <result name="delete"/>      
+		</action>     
+    </package>       
+    <!--调度管理 -->
+    <package name="transaction"  namespace="/sys_" extends="mydefault"> 
+		<action name="transactionAction" class="transactionAction"> 
+		 	 <result name="list" >/sys_/transaction/transactionList.jsp</result>       
+		 	 <result name="ui">/sys_/transaction/transaction.jsp</result> 
+		     <result name="edit" type="redirect">/sys_/transaction/transactionAction!list</result> 
+		     <result name="del" type="redirect">/sys_/transaction/transactionAction!list</result>   
+		</action>     
+    </package>   
+        
+    <!--授权中心通知管理 -->
+    <package name="noticePack"  namespace="/sys_" extends="mydefault"> 
+		<action name="noticeAc" class="noticeAction">       
+		 	 <result name="isExist"/> 
+		 	 <result name="ui">/sys_/notice/notice.jsp</result> 
+		 	 <result name="detail">/sys_/notice/detail.jsp</result> 
+		     <result name="edit" type="redirect">/sys_/notice/noticeList.jsp</result>   
+		     <result name="state_normal" type="redirect">/sys_/notice/noticeList.jsp</result>    
+		     <result name="state_assessor" type="redirect">/sys_/notice/noticetList_assessor.jsp</result>  
+		</action>     
+    </package>       
+</struts>

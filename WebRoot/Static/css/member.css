@@ -1,0 +1,48 @@
+.title { /*font-weight: bold;*/
+	font-size: 16px;
+	/*color:#E69700;*/
+}
+
+.content {
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.input_box {
+	background: #FFFFFF;
+	border: 1px solid #BDC7D8;
+	width: 380px;
+	height: 24px;
+}
+
+.input_select {
+	background: #FFFFFF;
+	border: 1px solid #BDC7D8;
+	border-top: 1px solid #BDC7D8;
+	height: 24px;
+}
+
+.memberdetails_boder {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #BDC7D8;
+}
+
+.type_input_box {
+	background: #FFFFFF;
+	border: 1px solid #BDC7D8;
+	width: 180px;
+	height: 24px;
+}
+
+.level_input_box {
+	background: #FFFFFF;
+	border: 1px solid #BDC7D8;
+	width: 180px;
+	height: 24px;
+}
+
+.img_style {
+	background: #FFFFFF;
+	border: 0px solid #BDC7D8;
+}
